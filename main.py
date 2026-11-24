@@ -23,6 +23,7 @@ def main():
     data = TITLE.encode("utf-8")
     assert 1 <= len(data) <= 60, "entry must be 1-60 characters"
     assert TITLE.strip() == TITLE and "\n" not in TITLE, "entry must be one line"
+    assert TITLE.isprintable(), "entry must be printable text only"
     os.umask(0o022)
     os.makedirs("/output", exist_ok=True)
     path = "/output/entry.txt"
